@@ -36,7 +36,7 @@ export default function Input({
                         placeholder={placeholder}
                         style={style}
                         onChange={(event) =>
-                            onchange?.call(null, event.target.value)
+                            onChange?.call(null, event.target.value)
                         }
                     />
                 </div>

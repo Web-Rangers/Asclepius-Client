@@ -1,0 +1,135 @@
+.servicesContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.pageHeader {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 0;
+}
+
+
+.breadcrumbs {
+    display: flex;
+    flex-direction: row;
+
+    color: #8f8f8f;
+    gap: 15px;
+    li::marker {
+        content: '';
+    }
+    li:not(:last-child) {
+        a {
+            color: #2751f2;
+        }
+
+        &::after {
+            content: '>';
+            margin-left: 15px;
+        }
+    }
+}
+
+.servicesCard {
+    height: auto;
+    .servicesHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom:0px;
+    }
+    .serviceInputsForm {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        .servInput {
+            width: 48.5%;
+            margin-bottom:25px;
+            .tagName {
+                font-size:16px;
+                color:#B3B1BB;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.table {
+    .tableHeader {
+        background-color: #F4F7FF!important;
+        padding:0 10px;
+    }
+    .tableBody{
+        margin-left:20px;
+    }
+    .tableRow {
+        grid-template-columns: 16% 38% 16% 12% 12% 5% !important;
+        .time{
+            text-align: center;
+        }
+        .tableRowTemplate {
+            background-color: red;
+        }
+        .tableCellTemplate{
+            padding:20px!important;
+        }
+        .tableActions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .tableRows {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            color: #B3B1BB;
+            font-weight: 200;
+            font-size:16px;
+        }
+    }
+}
+
+.serviceTitle {
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+
+.childServices {
+    display: flex;
+    align-items: center;
+    gap:5px;
+    color:#2751F2;
+    font-weight: 500;
+    font-size: 13px;
+    width: 10px;
+}
+
+.searchBar {
+    width: 350px;
+    input {
+        padding-left:56px!important;
+    }
+    &:after {
+        content:'';
+        position: absolute;
+        background-image: url('../../public/images/icons/inputs/search.svg');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        top:51%;
+        transform: translateY(-50%);
+        left:22px;
+    }
+}

@@ -1,0 +1,175 @@
+.adminsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.pageHeader {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 0;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 55px;
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-direction: row;
+
+    color: #8f8f8f;
+    gap: 15px;
+    li::marker {
+        content: '';
+    }
+    li:not(:last-child) {
+        a {
+            color: #2751f2;
+        }
+
+        &::after {
+            content: '>';
+            margin-left: 15px;
+        }
+    }
+}
+
+.adminsCard {
+    height: auto;
+    .tableSearchTools {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .toolBar {
+            display: flex;
+            justify-content: flex-end;
+            .servInput {
+                width: 270px;
+                margin-right:15px;
+                height: 60px;
+            }
+            .picker {
+                width:205px;
+                height: 60px;
+            }
+        }
+    }
+}
+
+.table {
+    .tableHeader {
+        background-color: #F4F7FF!important;
+        padding:0 10px;
+    }
+    .tableBody{
+        margin-left:20px;
+    }
+    .tableRow {
+        grid-template-columns: 26% 20% 16% 15% 19% 5% !important;
+        position: relative;
+        .time{
+            text-align: center;
+        }
+        .tableRowTemplate {
+            background-color: red;
+        }
+        .tableCellTemplate{
+            padding:20px!important;
+        }
+        .tableActions {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .doctorImage {
+                width: 40px;
+                margin-left:17px;
+                margin-right:17px;
+            }
+            .iconContainer {
+                margin-left:18px;
+            }
+        }
+        .more {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .moreIcon {
+                margin-right:10px;
+            }
+        }
+        .morButton {
+            display: none;
+        }
+        .activeMoreBlock{
+            display: flex;
+            position: absolute;
+            right:5px;
+            top:50px;
+            width: 140px;
+            flex-direction: column;
+            background-color:#fff;
+            box-shadow: 1px 3px 13px rgba(190, 187, 203, 0.6);
+            z-index:22;
+            .moreBtn {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin:10px 10px;
+                .iconContainer {
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+    .tableRows {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            color: #B3B1BB;
+            font-weight: 200;
+            font-size:16px;
+        }
+    }
+    .tableName {
+        display: flex;
+        flex-direction: column;
+        h2 {
+            margin:0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        span{
+            color:#B3B1BB;
+        }
+    }
+}
+
+.searchBar {
+    width: 340px;
+    input {
+        padding-left:56px!important;
+    }
+    &:after {
+        content:'';
+        position: absolute;
+        background-image: url('../../public/images/icons/inputs/search.svg');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        top:51%;
+        transform: translateY(-50%);
+        left:22px;
+    }
+}

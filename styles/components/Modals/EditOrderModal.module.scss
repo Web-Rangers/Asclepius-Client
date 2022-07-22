@@ -1,0 +1,143 @@
+.modal {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 870px;
+    max-height: 90%;
+    overflow-y:auto;
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #BFCCFF;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #2751F2; 
+    }  
+    &::-webkit-scrollbar-thumb:hover {
+        background: #1641ed; 
+      }
+    .modalActions {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+        justify-content: flex-end;
+    }
+    .modalContent {
+        .modalTitle {
+            h2 {
+                margin:0 0 35px;
+            }
+        }
+    }
+}
+
+.modalInputs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    .modalInput {
+        width: 47%;
+        margin-bottom:25px;
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #312e45;
+        }
+    }
+    .modalSelects {
+        display: flex;
+        .modalSelect {
+            margin-right: 15px;
+            &:nth-child(3){
+                margin-right:0;
+            }
+        }
+    }
+}
+
+.editBtns {
+    display: flex;
+    justify-content: flex-end;
+    padding-top:30px;
+    border-top:1px solid#B3B1BB;
+    width: 100%;
+    margin-top:10px;
+    button {
+        margin-left:35px;
+    }
+}
+
+.commissions {
+    width: 100%;
+    margin-bottom:25px;
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: #312e45;
+    }
+}
+
+.labels {
+    width: 100%;
+    margin-bottom:25px;
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: #312e45;
+    }
+}
+
+.tags {
+    display: flex;
+    align-items:Center;
+    gap:20px;
+    .tag {
+        display: flex;
+        justify-content: space-between;
+        padding:10px;
+        border:1px solid#2751F2;
+        .x {
+            margin-left:10px;
+            cursor:pointer;
+        }
+    }
+}
+
+.addLabel{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color:transparent;
+    cursor:pointer;
+    border:none;
+    .addBtn {
+        margin-right:5px;
+    }
+    span {
+        font-weight: 600;
+        font-size: 17px;
+        color: #2751F2;
+    }
+}
+
+.labelForm {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.addLabelInput {
+    margin-bottom:0!important;
+}

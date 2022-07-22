@@ -4,5 +4,8 @@ export * from './modals';
 export * from './tabs';
 export * from './progress';
 export { default as Table } from './Table';
+export { default as TableWithDropdowns } from './TableWithDropdowns';
+export { default as TableWithSort} from './TableWithSort';
+export { default as TableServices } from './TableServices';
 export { default as Navigation } from './Navigation';
 export { default as Calendar } from './Calendar';

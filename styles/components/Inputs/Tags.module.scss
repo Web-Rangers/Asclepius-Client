@@ -1,0 +1,72 @@
+.tagInputBlock {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #B3B1BB;
+    border-radius: 4px;
+    padding: 0 12px;
+    cursor:text;
+    align-items: center;
+    overflow: hidden;
+    margin-top:10px;
+    .tagPlaceholder {
+        position: absolute;
+        left:15px;
+        font-size:18px;
+        color: #B3B1BB;
+        font-weight: 400;
+    }
+    .tagsList {
+        display: flex;
+        .currTag {
+            display: flex;
+            justify-content: space-between;
+            margin-right:10px;
+            background-color:#E6EDFF;
+            padding:7px 11px;
+            .tagName { 
+                font-size:18px;
+                color:#1C1A27;
+            }
+            .removeTag {
+                cursor: pointer;
+                margin-left:19px;
+                margin-top:2.5px;
+            }
+        }
+    }
+    input {
+        border:none;
+        outline: none;
+        font-size:18px;
+    }
+}
+
+.tagTool {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .tagLabel {
+        font-size: 16px;
+        font-weight: 600!important;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+        text-align: left;
+    }
+    .addTag {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        color:#2751F2;
+        font-weight: 600;
+        font-size:16px;
+        cursor:pointer;
+        .plusBtn {
+            margin-right:5px;
+        }
+        .addtext { 
+            color: #2751F2!important;
+        }
+    }
+}

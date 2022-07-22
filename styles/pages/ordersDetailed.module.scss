@@ -1,0 +1,202 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageHeader {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 0;
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-direction: row;
+
+    color: #8f8f8f;
+    gap: 15px;
+    li::marker {
+        content: "";
+    }
+    li:not(:last-child) {
+        a {
+            color: #2751f2;
+        }
+
+        &::after {
+            content: ">";
+            margin-left: 15px;
+        }
+    }
+}
+
+.cardColumns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:35px 0 0;
+    .colCard {
+        width: 49%;
+        margin-bottom:25px;
+        height: auto;
+        .cardInfo {
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                h2 {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: #1C1A27;
+                    width: 200px;
+                    display: flex;
+                    align-items: center;
+                    span {
+                        display: block;
+                        width: 12px;
+                        height: 12px;
+                        margin-right:10px;
+                        border-radius:50%;
+                    }
+                    .done {
+                        background-color: #7C1CA9;
+                    }
+                    .in_progress{
+                        background-color: #FFB224;
+                    }
+                    .waiting {
+                        background-color: #2751F2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tableCeil{
+    display: grid;
+    grid-template-columns: 26% 22% 20% 20% 12% !important;
+    span {
+        margin-bottom:30px;
+    }
+    .ceilTitle {
+        font-weight: 500;
+    }
+}
+
+.comments {
+    margin-top:35px;
+}
+
+.commentBtn {
+    float:right;
+    margin-top:15px;
+}
+
+.commentList {
+    margin-top:10px;
+}
+
+.commentForm {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom:25px;
+    .image {
+        margin-right:19px;
+        width: 75px;
+        height: 75px;
+        border-radius:50%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .commentInfo {
+        width: 100%;
+        h2 {
+            margin: 0;
+            font-weight: 400;
+            font-size: 18px;
+            color: #1C1A27;
+        }
+        p {
+            margin-top:7px;
+            font-weight: 400;
+            font-size: 18px;
+            color: #1C1A27;
+        }
+    }
+}
+
+.order {
+    margin-top:35px;
+    .orderBlock {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .more {
+            margin-top:15px;
+            cursor:pointer;
+        }
+        h2 {
+            margin-right:35px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            button {
+                padding: 10px 12px;
+                color:#2751F2;
+                background-color: #CAD4FB;
+                border:0;
+                margin-right:15px;
+                font-weight: 500;
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+.orderTable {
+    display: flex;
+    justify-content: space-between;
+    div {
+        h2 {
+            font-weight: 400;
+            font-size: 16px;
+            color: #B3B1BB;
+        }
+        span {
+            display: flex;
+            align-items: center;
+            span {
+                display: block;
+                width: 12px;
+                height: 12px;
+                margin-right:10px;
+                border-radius:50%;
+            }
+            .done {
+                background-color: #7C1CA9;
+            }
+            .in_progress{
+                background-color: #FFB224;
+            }
+            .waiting {
+                background-color: #2751F2;
+            }
+        }
+    }
+}
+
+.revuew {
+    display: flex;
+    gap:10px;
+}

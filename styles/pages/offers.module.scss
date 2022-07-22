@@ -1,0 +1,307 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.pageHeader {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 0;
+}
+
+
+.breadcrumbs {
+    display: flex;
+    flex-direction: row;
+
+    color: #8f8f8f;
+    gap: 15px;
+    li::marker {
+        content: '';
+    }
+    li:not(:last-child) {
+        a {
+            color: #2751f2;
+        }
+
+        &::after {
+            content: '>';
+            margin-left: 15px;
+        }
+    }
+}
+
+.searchBar {
+    width: 340px;
+    input {
+        padding-left:56px!important;
+    }
+    &:after {
+        content:'';
+        position: absolute;
+        background-image: url('../../public/images/icons/inputs/search.svg');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        top:51%;
+        transform: translateY(-50%);
+        left:22px;
+    }
+}
+
+.filterContainer {
+    -webkit-box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    border-radius: 4px;
+    z-index: 100;
+    background-color: #fff;
+    padding: 30px;
+    position: absolute;
+    top: 80px;
+    left:35px;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-width: 930px;
+    gap: 20px;
+    &:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        position: absolute;
+        background-color: transparent;
+        border: 15px solid transparent;
+        border-bottom: 15px solid #fff;
+        top: -30px;
+        right: 54%;
+    }
+}
+
+
+.filterOpen {
+    display: block;
+}
+
+.servInput {
+    margin-bottom:25px;
+}
+
+.filterBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: #312e45;
+        margin-top: 0;
+        margin-bottom: 17px;
+    }
+    .btns {
+        display: flex;
+    }
+    .minMax {
+        div {
+            display: flex;
+            align-items: center;
+            gap:10px;
+        }
+        .intervalInput{
+            width: 150px;
+        }
+        .divider {
+            width: 20px;
+            border-top: 1px solid #1c1a27;
+        }
+    }
+}
+
+.filterSelectors{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .servInput {
+        width: 48%;
+    }
+    .selects {
+        width: 48%;
+        overflow: hidden;
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #312e45;
+            margin-top: 0;
+            margin-bottom: 17px;
+        }
+        div {
+            display: flex;
+            gap:10px;
+        }
+        
+    }
+    .minMax {
+        width: 48%;
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #312e45;
+            margin-top: 0;
+            margin-bottom: 17px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            gap:20px;
+        }
+        .divider {
+            width: 20px;
+            border-top: 1px solid #1c1a27;
+        }
+    }
+}
+
+.tableTopBlock {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .searchTool {
+        display: flex;
+        gap:20px;
+    }
+}
+
+.table {
+    .tableHeader {
+        background-color: #F4F7FF!important;
+        padding:0 10px;
+    }
+    .tableBody{
+        margin-left:20px;
+        gap:10px;
+    }
+    .tableRow {
+        grid-template-columns: 16% 20% 15% 23% 18% 6% !important;
+        .time{
+            text-align: center;
+        }
+        .tableRowTemplate {
+            background-color: red;
+        }
+        .tableCellTemplate{
+            padding:20px!important;
+            margin-left: 5px;
+        }
+        .tableGroup {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            div {
+                margin-right:10px;
+                color:#1C1A27;
+                h2 {
+                    margin:0;
+                    font-size:17px;
+                    font-weight: 400;
+                }
+            }
+            .description {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                height:40px;
+            }
+        }
+        .tableActions {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .iconContainer {
+                margin-left:18px;
+            }
+        }
+        .reviews {
+            display: flex;
+            align-items: center;
+            .starIcon {
+                margin-right:10px;
+            }
+        }
+    }
+    .tableRows {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            color: #B3B1BB;
+            font-weight: 200;
+            font-size:16px;
+        }
+    }
+}
+
+.tableDescription {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.upcoming {
+    background-color: #FFEECF;
+    color:#FFA600;
+}
+
+.finished {
+    background-color: #C4E7DC;
+    color:#00A875;
+}
+
+.calceled {
+    background-color: #FFC8C8;
+    color:#E32323;
+}
+
+.ongoing {
+    background-color: #CAD4FB;
+    color:#2751F2;
+}
+
+.statusBtn {
+    display: block;
+    padding:10px;
+    width: 105px;
+    text-align: center;
+}
+
+.dropDown {
+    flex-wrap:wrap!important;
+    flex: 1 1;
+    justify-content: flex-start!important;
+    div {
+        min-width: 25%;
+        margin-bottom:25px;
+    }
+}
+
+.description {
+    width: 100%;
+}

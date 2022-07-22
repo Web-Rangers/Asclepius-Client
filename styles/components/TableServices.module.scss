@@ -1,0 +1,257 @@
+.table {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+}
+
+.tableBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-x: scroll;
+    margin-left:0px!important;
+    margin-top: -13px!important;
+    .column {
+        position: relative;
+        cursor:pointer;
+        margin-right:3px;
+    }
+    .tableRow {
+        padding:3px 0 0 10px;
+        align-items: center;
+    }
+    .columnOpen {
+        box-shadow: 0px 4px 6px rgba(190, 187, 203, 0.25);
+        margin-left:2px;
+        .arrow {
+            transform: rotate(90deg)
+        }
+        .tableRow {
+            background-color: #F4F7FF;
+        }
+        .dropdown {
+            padding: 30px;
+            padding-left:10px;
+        }
+    }
+    .statusOpen {
+        display: flex!important;
+        height: auto;
+    }
+    .dropdown {
+        display: none;
+        justify-content: space-between;
+        background-color: #fff;
+        overflow: hidden;
+        .statusClosed {
+            display: none;
+        }
+        .dropdownCol {
+            h2 {
+                margin-top:0;
+                font-weight: 500;
+                font-size: 17px;
+                color:#B3B1BB;
+            }
+            span {
+                font-weight: 400;
+                font-size: 16px;
+                color:#1C1A27;
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tableHeader {
+    background-color: transparent;
+}
+
+.headerBack {
+    background-color: #d9def3;
+    border-radius: 4px;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tableRowTemplate {
+    width: 100%;
+    min-height: 50px;
+    display: grid;
+    border-radius: 4px;
+    grid-template-columns: 7% 13% 35% 15% 11% 14% 5%;
+    grid-auto-flow: column;
+}
+
+.tableCellTemplate {
+    display: grid;
+    padding: 5px;
+    height: 100%;
+    max-height: 60px;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+}
+
+.tableIconCellTemplate {
+    display: grid;
+    padding: 10px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tableStatusCellTemplate {
+    display: grid;
+    padding: 11.5px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tableHeaderCell {
+    font-weight: 500;
+    padding: 15px 5px;
+    background-color: transparent;
+}
+
+.tableRow {
+    background-color: #ffffff;
+    height: 60px;
+}
+
+.tableCell {
+    font-weight: 400;
+}
+
+.rowImg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tableStatus {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    width: min-content;
+    height: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.statusOpen {
+    background-color: #c4e7dc;
+    color: #00a875;
+}
+
+.statusClose {
+    background-color: #e7c4c4;
+    color: #e32323;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.paginationControls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+}
+
+.recordCounter,
+.paginatorTitle {
+    color: #1c1a27;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+}
+
+.paginationButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 40px;
+    gap: 40px;
+}
+
+.paginationBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.paginationBtn * {
+    stroke: #63626d;
+}
+
+.disable,
+.disable * {
+    pointer-events: none;
+    stroke: #b3b1bb;
+}
+
+.pageSelect {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+}
+
+.arrayBoxes {
+    padding:10px;
+    background-color:#CAD4FB;
+    margin-right:10px;
+    color: #2751f2 !important;
+    font-weight: 600!important;
+}
+
+.subService{
+    display: grid;
+    gap:20px;
+    margin-bottom:20px;
+    grid-template-columns: 5% 22% 77% 31% 45% 15%!important;
+}
+
+.servicesAction {
+    display: flex;
+    margin-right:auto;
+    justify-content: flex-end;
+    margin-left:0px;
+    gap:10px;
+}
+
+.arrow {
+    margin-right:10px;
+}
+
+.subValue {
+    margin-left:17px;
+}

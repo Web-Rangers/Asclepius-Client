@@ -6,3 +6,4 @@ export { default as Switch } from './Switch';
 export { default as DatePicker } from './DatePicker';
 export { default as Range } from './Range';
 export { default as SelectWithCheckbox } from './SelectWithCheckbox';
+export { default as Tags } from './Tags';

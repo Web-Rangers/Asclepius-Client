@@ -37,9 +37,14 @@
     }
 }
 
+.ordersCard {
+    position: relative;
+    margin:25px 0;
+}
+
 .searchContainer {
     height: 100%;
-    width: 385px;
+    width: 340px;
     background-color: #ffffff;
     border: 1px solid #b3b1bb;
     border-radius: 4px;
@@ -87,4 +92,227 @@ button:focus {
             }
         }
     }
+}
+
+.actionsRow {
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+.addOrderBtn {
+    margin-left:auto;
+}
+
+.table {
+    .tableHeader {
+        background-color: #F4F7FF!important;
+        padding:0 10px;
+    }
+    .tableBody{
+        margin-left:20px;
+        .columnOpen {
+            .tableRow {
+                background-color:red;
+            }
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    .tableRow {
+        grid-template-columns: 15% 13% 13% 11% 10% 14% 10% 7% 6% !important;
+        .time{
+            text-align: center;
+        }
+        .tableRowTemplate {
+            background-color: red;
+        }
+        .tableCellTemplate{
+            padding:20px!important;
+        }
+        .tableActions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .tableRows {
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            color: #B3B1BB;
+            font-weight: 200;
+            font-size:16px;
+        }
+    }
+}
+
+.tableGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    div {
+        display: flex;
+        flex-direction: column;
+        span{
+            &:nth-child(2){
+                color:#838383;
+            }
+        }
+    }
+}
+
+.tableActons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropDwn {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    div {
+        width: 30%;
+        margin-bottom:25px;
+    }
+}
+
+.statusBtn {
+    position: relative;
+    padding:0 0 0 20px;
+    display: flex;
+    &:before {
+        content:'';
+        position: absolute;
+        left:0;
+        width: 12px;
+        height: 12px;
+        border-radius:50%;
+        top:50%;
+        transform: translateY(-50%);
+    }
+}
+
+.inprogress {
+    &:before {
+        background-color:#FFB224;
+    }
+}
+
+.done {
+    &:before {
+        background-color:#00A875;
+    }
+}
+
+.waiting {
+    &:before {
+        background-color:#2751F2;
+    }
+}
+
+.canceled {
+    &:before {
+        background-color: #FF3E6C;
+    }
+}
+
+.filterContainer {
+    -webkit-box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 28px 5px rgba(0, 0, 0, 0.09);
+    border-radius: 4px;
+    z-index: 100;
+    background-color: #fff;
+    padding: 30px;
+    position: absolute;
+    top: 119px;
+    left:13px;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-width: 930px;
+    gap: 20px;
+    &:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        position: absolute;
+        background-color: transparent;
+        border: 15px solid transparent;
+        border-bottom: 15px solid #fff;
+        top: -30px;
+        right: 54%;
+    }
+}
+
+
+.filterOpen {
+    display: block;
+}
+
+.filterSelectors{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .servInput {
+        width: 48%;
+        margin-bottom:30px;
+    }
+    .selects {
+        width: 48%;
+        overflow: hidden;
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #312e45;
+            margin-top: 0;
+            margin-bottom: 17px;
+        }
+        div {
+            display: flex;
+            gap:10px;
+        }
+        
+    }
+    .minMax {
+        width: 48%;
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0.04em;
+            text-align: left;
+            color: #312e45;
+            margin-top: 0;
+            margin-bottom: 17px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            gap:20px;
+        }
+        .divider {
+            width: 20px;
+            border-top: 1px solid #1c1a27;
+        }
+    }
+}
+
+.filterBtns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top:20px;
+}
+
+.arrow {
+    margin-right:15px;
 }

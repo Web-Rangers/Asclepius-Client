@@ -1,0 +1,55 @@
+.modal {
+    padding:0px;
+    background-color: transparent;
+    width: 510px;
+    box-shadow: 0 0 0;
+    border:none;
+    .modalContent {
+        width:100%;
+        background-color: #ffffff;
+        border:none;
+        .modalTitle {
+            padding:19px 40px;
+            background-color:#2751F2;
+            h2 {
+                margin:0;
+                font-weight: 700;
+                font-size: 24px;
+                color:#fff;
+            }
+        }
+    }
+    .modalFooter {
+        padding: 0 34px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        color: #979699
+    }
+
+    .messageContent {
+        padding:30px 40px;
+        .btnError {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+            color: #B3B1BB;
+        }
+        .team {
+            display: flex;
+            flex-direction: column;
+            margin-bottom:25px;
+        }
+        .messageBtn {
+            margin: 30px auto;
+        }
+        .message {
+            h2 {
+                font-weight: 700;
+                font-size: 22px;
+                color: #2751F2;
+            }
+        }
+    }
+}
