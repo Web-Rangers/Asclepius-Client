@@ -26,8 +26,8 @@ const Range = ({
 }: RangeProps) => {
     const ref = useRef(null);
     const [handle1, setHandle1] = useState<number>(min);
-    const [handle1Active, setHandle1Active] = useState<boolean>(false);
     const [handle2, setHandle2] = useState<number>(max);
+    const [handle1Active, setHandle1Active] = useState<boolean>(false);
     const [handle2Active, setHandle2Active] = useState<boolean>(false);
     const [style1, setStyle1] = useState<React.CSSProperties>({});
     const [style2, setStyle2] = useState<React.CSSProperties>({});
@@ -74,7 +74,11 @@ const Range = ({
     }, [handle1, handle2]);
 
     useEffect(() => {
+        if (handle1Active || handle2Active) return;
         if (min === handle1 && max === handle2) return;
+        if (min > max) return onChange?.call(null, max, min);
+        if (min < minValue) return onChange?.call(null, minValue, max);
+        if (max > maxValue) return onChange?.call(null, min, maxValue);
         if (min !== undefined) setHandle1(min);
         if (max !== undefined) setHandle2(max);
     }, [min, max]);

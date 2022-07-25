@@ -401,13 +401,22 @@ export default function Users() {
                                     <div className={styles.filterInput}>
                                         <Input
                                             className={styles.intervalInput}
-                                            value={min > max ? max : min}
-                                            onChange={(value) => {}}
+                                            value={min}
+                                            onChange={(value) => {
+                                                if (Number.isNaN(+value))
+                                                    return;
+                                                setMin(+value);
+                                            }}
                                         />
                                         <div className={styles.divider} />
                                         <Input
                                             className={styles.intervalInput}
-                                            value={min < max ? max : min}
+                                            value={max}
+                                            onChange={(value) => {
+                                                if (Number.isNaN(+value))
+                                                    return;
+                                                setMin(+value);
+                                            }}
                                         />
                                         <Range
                                             min={min}
