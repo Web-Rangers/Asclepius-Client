@@ -454,7 +454,7 @@ export default function Users() {
                                             onChange={(value) => {
                                                 if (Number.isNaN(+value))
                                                     return;
-                                                setMin(+value);
+                                                setMax(+value);
                                             }}
                                         />
                                         <Range

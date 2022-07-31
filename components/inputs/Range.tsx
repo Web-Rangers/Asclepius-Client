@@ -76,9 +76,11 @@ const Range = ({
     useEffect(() => {
         if (handle1Active || handle2Active) return;
         if (min === handle1 && max === handle2) return;
-        if (min > max) return onChange?.call(null, max, min);
+        // if (min >= max) return onChange?.call(null, max, min);
         if (min < minValue) return onChange?.call(null, minValue, max);
+        if (max < minValue) return onChange?.call(null, max, minValue);
         if (max > maxValue) return onChange?.call(null, min, maxValue);
+        if (min > maxValue) return onChange?.call(null, maxValue, max);
         if (min !== undefined) setHandle1(min);
         if (max !== undefined) setHandle2(max);
     }, [min, max]);
