@@ -178,6 +178,8 @@ export default function Users() {
     const [gender, setGender] = useState<'male' | 'female'>();
     const [filterOpen, setFilterOpen] = useState(false);
     const [dateRange, setDateRange] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [registration, setRegistration] = useState('');
     const [searchText, setSearchText] = useState('');
     const [filteredData, setFilteredData] = useState(data);
     const [paymentType, setPaymentType] = useState<
@@ -275,7 +277,12 @@ export default function Users() {
         setFilteredData(
             data.filter((record) => {
                 if (!searchText) return true;
-                if (record.person.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) return true;
+                if (
+                    record.person.name
+                        .toLowerCase()
+                        .indexOf(searchText.toLowerCase()) !== -1
+                )
+                    return true;
                 return false;
             })
         );
@@ -334,6 +341,7 @@ export default function Users() {
                         <DatePicker
                             mode="range"
                             value={dateRange}
+                            placeholder="Date interval"
                             onChange={setDateRange}
                         />
                         <div className={styles.whiteSpace}></div>
@@ -363,7 +371,12 @@ export default function Users() {
                                         Date of birth
                                     </div>
                                     <div className={styles.filterInput}>
-                                        <DatePicker mode="range" />
+                                        <DatePicker
+                                            value={birthday}
+                                            onChange={setBirthday}
+                                            mode="range"
+                                            placeholder="01.01.2001"
+                                        />
                                     </div>
                                 </div>
                                 <div className={styles.filterRow}>
@@ -371,7 +384,12 @@ export default function Users() {
                                         Date of registration
                                     </div>
                                     <div className={styles.filterInput}>
-                                        <DatePicker mode="range" />
+                                        <DatePicker
+                                            value={registration}
+                                            onChange={setRegistration}
+                                            mode="range"
+                                            placeholder="01.01.2001"
+                                        />
                                     </div>
                                 </div>
                                 <div className={styles.filterRow}>

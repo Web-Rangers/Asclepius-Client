@@ -2,6 +2,7 @@ import classNames, { Value } from 'classnames';
 import styles from 'styles/components/inputs/Input.module.scss';
 import { ReactSVG } from 'react-svg';
 import { useEffect, useState } from 'react';
+import InputMask from 'react-input-mask';
 import next from 'next';
 import { start } from 'repl';
 import { DoctorServicesTab } from '..';
@@ -130,21 +131,36 @@ export default function DatePicker({
     mode,
 }: DatePickerProps) {
     const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        document.addEventListener('click', () => setIsOpen(false));
+    }, []);
     return (
-        <div className={classNames([styles.inputContainer, className])}>
+        <div
+            className={classNames([styles.inputContainer, className])}
+            onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            }}
+        >
             {label && <span className={styles.label}>{label}</span>}
             <div className={styles.input}>
-                <input
+                <InputMask
+                    mask={mode==='single'?"99.99.9999":"99.99.9999 - 99.99.9999"}
                     value={value}
-                    placeholder={placeholder}
                     onChange={(event) =>
                         onChange?.call(null, event.target.value)
                     }
-                />
+                >
+                    {(inputProps) => (
+                        <input {...inputProps} placeholder={placeholder} />
+                    )}
+                </InputMask>
                 <ReactSVG
                     src={'/images/icons/inputs/calendar.svg'}
                     className={classNames(styles.iconContainer)}
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={() => {
+                        setIsOpen(!isOpen);
+                    }}
                 />
                 {mode === 'single' && (
                     <Picker
