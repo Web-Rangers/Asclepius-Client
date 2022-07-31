@@ -398,13 +398,14 @@ export default function Users() {
                                     </div>
                                     <div className={styles.filterInput}>
                                         <Select
-                                            label=""
+                                            label="Select a city"
                                             options={[
                                                 {
                                                     label: 'Minsk',
                                                     value: 'minsk',
                                                 },
                                             ]}
+                                            
                                             onChange={() => {}}
                                         />
                                     </div>
