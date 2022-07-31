@@ -12,8 +12,165 @@ import SideBarLayout from 'layouts/SideBarLayout';
 import styles from 'styles/pages/users.module.scss';
 import tableStyles from 'styles/components/Table.module.scss';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Breadcrumbs from 'nextjs-breadcrumbs';
+
+const data = [
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+    {
+        person: {
+            name: 'Kathryn Murphy',
+            gender: 'Female',
+            photo: '/images/users/user1.png',
+        },
+        birth: '14.08.1999',
+        card: 'Platinum',
+        city: 'Akhaltsikhe',
+        company: 'Disney Company',
+        registration: '14.08.1999',
+        orders: '143',
+        lastDate: '14.08.1999',
+    },
+];
 
 export default function Users() {
     const [min, setMin] = useState(0);
@@ -21,6 +178,8 @@ export default function Users() {
     const [gender, setGender] = useState<'male' | 'female'>();
     const [filterOpen, setFilterOpen] = useState(false);
     const [dateRange, setDateRange] = useState('');
+    const [searchText, setSearchText] = useState('');
+    const [filteredData, setFilteredData] = useState(data);
     const [paymentType, setPaymentType] = useState<
         'online' | 'inhouse' | 'inclinic'
     >();
@@ -112,162 +271,19 @@ export default function Users() {
         },
     ];
 
-    const data = [
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-        {
-            person: {
-                name: 'Kathryn Murphy',
-                gender: 'Female',
-                photo: '/images/users/user1.png',
-            },
-            birth: '14.08.1999',
-            card: 'Platinum',
-            city: 'Akhaltsikhe',
-            company: 'Disney Company',
-            registration: '14.08.1999',
-            orders: '143',
-            lastDate: '14.08.1999',
-        },
-    ];
+    const filterData = () => {
+        setFilteredData(
+            data.filter((record) => {
+                if (!searchText) return true;
+                if (record.person.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) return true;
+                return false;
+            })
+        );
+    };
+
+    useEffect(() => {
+        filterData();
+    }, [searchText]);
 
     return (
         <div className={styles.container}>
@@ -307,6 +323,10 @@ export default function Users() {
                             <input
                                 id="search-input"
                                 className={styles.searchInput}
+                                onChange={(event) => {
+                                    setSearchText(event.target.value);
+                                }}
+                                value={searchText}
                                 type="text"
                                 placeholder="Search"
                             />
@@ -528,7 +548,7 @@ export default function Users() {
                     <Table
                         className={styles.table}
                         columns={columns}
-                        data={data}
+                        data={filteredData}
                         rowClassName={styles.tableRow}
                         cellClassName={styles.tableCell}
                         pagination={{ pageSize: 8, initialPage: 1 }}
