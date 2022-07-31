@@ -61,6 +61,65 @@
         }
     }
 }
+
+.modal {
+    min-width: 1000px;
+    > .modalActions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 25px;
+    }
+}
+
+.modalHeader {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0.04em;
+    text-align: left;
+}
+
+.modalRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 30px;
+    width: 100%;
+    .modalTitle {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: #b3b1bb;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    > .modalInput:first-child {
+        flex: 60% 1;
+        display: flex;
+        > * {
+            flex: 0px 1 1;
+        }
+        > .modalTitle {
+            flex: 40% 0 0;
+        }
+    }
+    > .modalInput:last-child {
+        display: flex;
+        flex: 40% 1;
+        > * {
+            flex: 0px 1 1;
+        }
+        > .modalTitle {
+            flex: 50% 0 0;
+        }
+    }
+}
+
 .doctorRow {
     display: flex;
     flex-direction: row;
@@ -205,7 +264,8 @@
     align-items: center;
     justify-content: flex-end;
     gap: 40px;
-    .selectContainer, .dateContainer {
+    .selectContainer,
+    .dateContainer {
         display: flex;
         gap: 25px;
         align-items: center;
@@ -216,7 +276,7 @@
             letter-spacing: 0em;
             text-align: left;
         }
-        .statusSelect{
+        .statusSelect {
             min-width: 180px;
         }
     }
@@ -225,10 +285,10 @@
     grid-template-columns: 12% 20% 13% 16% 12% 7% 7% 8% 5%;
 }
 
-.tableCell{
+.tableCell {
     padding: 10px;
 }
 
-.infoAction{
+.infoAction {
     cursor: pointer;
 }
