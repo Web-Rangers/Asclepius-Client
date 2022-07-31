@@ -33,15 +33,15 @@ const data = [
     {
         person: {
             name: 'Kathryn Murphy',
-            gender: 'Female',
+            gender: 'Male',
             photo: '/images/users/user1.png',
         },
-        birth: '14.08.1999',
-        card: 'Platinum',
+        birth: '12.09.2000',
+        card: 'Gold',
         city: 'Akhaltsikhe',
         company: 'Disney Company',
         registration: '14.08.1999',
-        orders: '143',
+        orders: '25',
         lastDate: '14.08.1999',
     },
     {
@@ -172,20 +172,42 @@ const data = [
     },
 ];
 
+function checkDateRange(rangeString: string) {
+    const [start, end] = rangeString.split('-').map((str) => str.trim());
+    var startDate = Date.parse(start);
+    var endDate = Date.parse(end);
+    if (isNaN(startDate)) {
+        return false;
+    }
+    if (isNaN(endDate)) {
+        return false;
+    }
+    var difference = (endDate - startDate) / (86400000 * 7);
+    if (difference < 0) {
+        return false;
+    }
+    if (difference <= 1) {
+        return false;
+    }
+    return [startDate, endDate];
+}
+
 export default function Users() {
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(20);
-    const [gender, setGender] = useState<'male' | 'female'>();
-    const [filterOpen, setFilterOpen] = useState(false);
+    const [searchText, setSearchText] = useState('');
     const [dateRange, setDateRange] = useState('');
+    const [filterOpen, setFilterOpen] = useState(false);
+    const [isFilter, setFilter] = useState(false);
     const [birthday, setBirthday] = useState('');
     const [registration, setRegistration] = useState('');
-    const [searchText, setSearchText] = useState('');
-    const [filteredData, setFilteredData] = useState(data);
+    const [city, setCity] = useState('');
+    const [gender, setGender] = useState<'male' | 'female'>();
     const [paymentType, setPaymentType] = useState<
         'online' | 'inhouse' | 'inclinic'
     >();
     const [cardType, setCardType] = useState<'silver' | 'gold' | 'platinum'>();
+    const [filteredData, setFilteredData] = useState(data);
     const onRangeChange = (min, max) => {
         setMin(min);
         setMax(max);
@@ -274,8 +296,38 @@ export default function Users() {
     ];
 
     const filterData = () => {
+        let filteredData = data;
+        if (isFilter)
+            filteredData = filteredData.filter((record) => {
+                const birthdayDates = checkDateRange(birthday);
+                if (birthdayDates) {
+                    const [start, end] = birthdayDates;
+                    const birthDate = Date.parse(record.birth);
+                    if (birthDate < start || birthDate > end) return false;
+                }
+                const registrationDates = checkDateRange(registration);
+                if (registrationDates) {
+                    const [start, end] = registrationDates;
+                    const registrationDate = Date.parse(record.registration);
+                    if (registrationDate < start || registrationDate > end)
+                        return false;
+                }
+                if (city) {
+                    if (
+                        record.city.toLocaleLowerCase().trim() !==
+                        city.toLocaleLowerCase().trim()
+                    )
+                        return false;
+                }
+                if (record.person.gender.toLocaleLowerCase().trim() !== gender)
+                    return false;
+                if (+record.orders < min || +record.orders > max) return false;
+                if (record.card.toLocaleLowerCase().trim() !== cardType)
+                    return false;
+                return true;
+            });
         setFilteredData(
-            data.filter((record) => {
+            filteredData.filter((record) => {
                 if (!searchText) return true;
                 if (
                     record.person.name
@@ -399,14 +451,16 @@ export default function Users() {
                                     <div className={styles.filterInput}>
                                         <Select
                                             label="Select a city"
+                                            value={city}
                                             options={[
                                                 {
                                                     label: 'Minsk',
                                                     value: 'minsk',
                                                 },
                                             ]}
-                                            
-                                            onChange={() => {}}
+                                            onChange={(value) => {
+                                                setCity(value);
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -461,7 +515,7 @@ export default function Users() {
                                             min={min}
                                             max={max}
                                             minValue={0}
-                                            maxValue={100}
+                                            maxValue={1000}
                                             step={1}
                                             onChange={onRangeChange}
                                         />
@@ -546,6 +600,10 @@ export default function Users() {
                                     <Button
                                         label="Reset filter"
                                         className={styles.resetButton}
+                                        onClick={() => {
+                                            setFilter(false);
+                                            filterData();
+                                        }}
                                         size="large"
                                         variant="text"
                                         icon={
@@ -559,6 +617,10 @@ export default function Users() {
                                         label="Apply"
                                         variant="fill"
                                         size="large"
+                                        onClick={() => {
+                                            setFilter(true);
+                                            filterData();
+                                        }}
                                     />
                                 </div>
                             </div>
