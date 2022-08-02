@@ -20,6 +20,15 @@
     width: 820px;
 }
 
+.nextContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > button {
+        width: 205px;
+    }
+}
+
 .startContainer {
     display: flex;
     flex-direction: column;
@@ -45,6 +54,7 @@
         width: 100%;
 
         > .startAction {
+            box-sizing: border-box;
             cursor: pointer;
             transition: all 0.3s ease-out;
             height: 340px;
@@ -57,6 +67,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            border: 2px solid transparent;
+            &.selected {
+                border: 2px solid #2751f2;
+                transform: scale(1.02);
+            }
             > img {
                 height: 190px;
                 object-fit: cover;
@@ -314,7 +329,7 @@
         letter-spacing: 0.04em;
         text-align: center;
     }
-    >button{
+    > button {
         padding-left: 90px;
         padding-right: 90px;
     }

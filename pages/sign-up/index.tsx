@@ -1,4 +1,5 @@
-import { Button, Input, Select, Card } from 'components';
+import classNames from 'classnames';
+import { Button, Input, Select, Card, DatePicker } from 'components';
 import Radio from 'components/inputs/radio';
 import { Stepper } from 'components/progress';
 import { Step } from 'components/progress/Stepper';
@@ -9,6 +10,7 @@ import styles from 'styles/pages/signup.module.scss';
 
 export default function Authorization() {
     const [step, setStep] = useState(0);
+    const [employment, setEmployment] = useState<'' | 'self' | 'company'>('');
     const [jobTitles, setJobTitles] = useState([
         {
             value: '1',
@@ -31,24 +33,39 @@ export default function Authorization() {
                 </div>
                 <div className={styles.startActions}>
                     <div
-                        className={styles.startAction}
+                        className={classNames(styles.startAction, {
+                            [styles.selected]: employment === 'self',
+                        })}
                         onClick={() => {
-                            setStep((origin) => origin + 1);
+                            setEmployment('self');
                         }}
                     >
                         <img src="/images/signUp/self-employed.png" />
                         <div className={styles.title}>Self-employed</div>
                     </div>
                     <div
-                        className={styles.startAction}
+                        className={classNames(styles.startAction, {
+                            [styles.selected]: employment === 'company',
+                        })}
                         onClick={() => {
-                            setStep((origin) => origin + 1);
+                            setEmployment('company');
                         }}
                     >
                         <img />
                         <img src="/images/signUp/company member.png" />
                         <div className={styles.title}>Company member</div>
                     </div>
+                </div>
+                <div className={styles.nextContainer}>
+                    <Button
+                        label="Next"
+                        variant="fill"
+                        size="large"
+                        onClick={() => {
+                            if (employment !== '')
+                                setStep((origin) => origin + 1);
+                        }}
+                    />
                 </div>
             </div>
         );
@@ -91,10 +108,10 @@ export default function Authorization() {
                                 value={selectedTitle}
                             />
                             <div className={styles.editRow}>
-                                <Input
-                                    type="date"
+                                <DatePicker
                                     label="Date of birth"
-                                    value="01.01.2000"
+                                    mode="single"
+                                    placeholder="01.01.2000"
                                 />
                                 <div className={styles.inputContainer}>
                                     <div className={styles.editTitle}>
@@ -171,16 +188,16 @@ export default function Authorization() {
                                 placeholder="Enter school..."
                             ></Input>
                             <div className={styles.editRow}>
-                                <Input
-                                    type="date"
+                                <DatePicker
                                     label="Start date"
-                                    value="01.01.2001"
-                                ></Input>
-                                <Input
-                                    type="date"
+                                    mode="single"
+                                    placeholder="01.01.2000"
+                                />
+                                <DatePicker
                                     label="End date"
-                                    value="01.01.2001"
-                                ></Input>
+                                    mode="single"
+                                    placeholder="01.01.2000"
+                                />
                             </div>
                         </div>
                         <div className={styles.fileInput}>
@@ -256,16 +273,16 @@ export default function Authorization() {
                                 placeholder="Enter school..."
                             ></Input>
                             <div className={styles.editRow}>
-                                <Input
-                                    type="date"
+                                <DatePicker
                                     label="Issue date"
-                                    value="01.01.2001"
-                                ></Input>
-                                <Input
-                                    type="date"
+                                    mode="single"
+                                    placeholder="01.01.2000"
+                                />
+                                <DatePicker
                                     label="End date"
-                                    value="01.01.2001"
-                                ></Input>
+                                    mode="single"
+                                    placeholder="01.01.2000"
+                                />
                             </div>
                         </div>
                         <div className={styles.editRow}>
@@ -453,13 +470,13 @@ export default function Authorization() {
         return (
             <Card className={styles.card}>
                 <div className={styles.finishContainer}>
-                    <img src='/images/signUp/finish.png'/>
+                    <img src="/images/signUp/finish.png" />
                     <div className={styles.finishText}>
                         Thank you for the information provided, our operators
                         are currently processing it. After processing, our
                         operator will contact you
                     </div>
-                    <Button variant="fill" label="Finish" size='large'/>
+                    <Button variant="fill" label="Finish" size="large" />
                 </div>
             </Card>
         );
