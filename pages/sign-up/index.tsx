@@ -148,13 +148,13 @@ export default function Authorization() {
                             <div className={styles.editColumn}>
                                 <Input
                                     type="text"
-                                    label="Name"
-                                    placeholder="Enter name..."
+                                    label="IBAN"
+                                    placeholder="Enter IBAN..."
                                 ></Input>
                                 <Input
                                     type="text"
-                                    label="Surname"
-                                    placeholder="Enter surname..."
+                                    label="Id"
+                                    placeholder="Enter Id..."
                                 ></Input>
                             </div>
                             <Input
