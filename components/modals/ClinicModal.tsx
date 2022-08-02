@@ -44,12 +44,6 @@ export default function ClinicModal({
                         value={email}
                         onChange={(value: string) => setEmail(value)}
                     />
-                    <Input
-                        type="text"
-                        label="Phone number"
-                        value={phone}
-                        onChange={(value: string) => setPhone(value)}
-                    />
                 </div>
                 <div className={styles.modalContentRow}>
                     <Input
@@ -60,9 +54,9 @@ export default function ClinicModal({
                     />
                     <Input
                         type="text"
-                        label="Registration date"
-                        value={registrationDate}
-                        onChange={(value: string) => setRegistrationDate(value)}
+                        label="Phone number"
+                        value={phone}
+                        onChange={(value: string) => setPhone(value)}
                     />
                 </div>
                 <div className={styles.modalContentRow}>
